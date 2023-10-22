@@ -1,0 +1,49 @@
+@model Candidate
+@{ViewData["Title"] = "Apply";}
+
+<h3 class="display-4">Apply</h3>
+
+<form method="post" asp-action="apply">
+    <div class="my-2">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" type="text">
+    </div>
+    <div class="my-2">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" type="text">
+    </div>
+    <div class="my-2">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" class="form-control" type="text">
+    </div>
+    <div class="my-2">
+        <label asp-for="Age"></label>
+        <select asp-for="Age" class="form-select">
+            <option value="18">18</option>
+            <option value="20">20</option>
+            <option value="22">22</option>
+        </select>
+    </div>
+
+    <fieldset>
+        <legend>Chose Only one Course</legend>
+
+        <p>
+            <input checked type="radio" asp-for="SelectedCourse" value="Asp.NET Core MVC">
+            <label>Asp.NET Core MVC</label>
+        </p>
+        <p>
+            <input type="radio" asp-for="SelectedCourse" value="Asp.NET Core API">
+            <label>Asp.NET Core API</label>
+        </p>
+        <p>
+            <input type="radio" asp-for="SelectedCourse" value="Blazor">
+            <label>Blazor</label>
+        </p>
+    </fieldset>
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+
+    <button class="btn btn-primary" type="submit">Apply</button>
+    <a class="btn btn-warning" asp-controller="Home">Home</a>
+</form>

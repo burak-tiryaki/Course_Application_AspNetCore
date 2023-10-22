@@ -1,0 +1,34 @@
+@model List<Candidate>
+
+<h3 class="display-6">
+Applications (@Model.Count())
+</h3>
+
+@if(Model.Count() > 0 )
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>EMAİL</th>
+                <th>NAME</th>
+                <th>COURSE</th>
+                <th>APPLY AT</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model){
+                <tr>
+                    <td>@item.Email</td>
+                    <td>@item.FullName</td>
+                    <td>@item.SelectedCourse</td>
+                    <td>@item.ApplyAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else{
+    <div class="alert alert-primary">
+        There is no application. Please click <a class="alert-link" asp-controller="course" asp-action="apply">here</a> to apply.
+    </div>
+}

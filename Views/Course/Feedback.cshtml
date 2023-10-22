@@ -1,0 +1,20 @@
+@model Candidate
+@{ViewData["Title"] = "Congratulations";}
+
+<div class="display-4">
+    Congratulations @Model.FullName
+</div>
+<p class="lead">Your application has been <mark>accapted.</mark></p>
+<p class="lead">Many thanks for your interest.</p>
+<hr>
+
+<p class="blockquote">
+    You have enrolled to <strong>@Model.SelectedCourse</strong> course.
+</p>
+
+<p class="text-muted">Applied at @Model.ApplyAt</p>
+
+<div class="btn-group">
+    <a asp-controller="Course" asp-action="Index" class="btn btn-success">Application</a>
+    <a asp-controller="Home" class="btn btn-outline-success">Home</a>
+</div>
